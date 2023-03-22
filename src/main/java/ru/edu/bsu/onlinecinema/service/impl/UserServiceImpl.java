@@ -1,13 +1,12 @@
 package ru.edu.bsu.onlinecinema.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.edu.bsu.onlinecinema.persistance.UserDto;
+import ru.edu.bsu.onlinecinema.persistance.dto.UserDto;
 import ru.edu.bsu.onlinecinema.persistance.model.User;
 import ru.edu.bsu.onlinecinema.persistance.repository.UserRepository;
 import ru.edu.bsu.onlinecinema.service.UserService;

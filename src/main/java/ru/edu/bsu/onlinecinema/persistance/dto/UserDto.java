@@ -1,4 +1,4 @@
-package ru.edu.bsu.onlinecinema.persistance;
+package ru.edu.bsu.onlinecinema.persistance.dto;
 
 import lombok.Data;
 
