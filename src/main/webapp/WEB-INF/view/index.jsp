@@ -1,9 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Онлайн кинотеатр</title>
+    <title>Страница пользователя</title>
 </head>
 <body>
-Привет Мир
+    <h1>Привет</h1>
 </body>
 </html>
