@@ -1,0 +1,35 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="23.03.2023" author="Valeria">
+        <createTable tableName="film">
+            <column name="id" remarks="ID" type="integer" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="film_pk"/>
+            </column>
+            <column name="name" type="varchar(255)">
+            </column>
+        </createTable>
+        <createTable tableName="sessions">
+            <column name="id" remarks="ID" type="integer" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="session_pk"/>
+            </column>
+            <column name="film_id" type="integer">
+                <constraints foreignKeyName="film_fk" referencedTableName="film" referencedColumnNames="id"/>
+            </column>
+            <column name="time" type="timestamp"/>
+            <column name="place_count" type="integer"/>
+        </createTable>
+        <createTable tableName="orders">
+            <column name="id" remarks="ID" type="integer" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="order_pk"/>
+            </column>
+            <column name="user_id" type="integer">
+                <constraints foreignKeyName="user_fk" referencedTableName="users" referencedColumnNames="id"/>
+            </column>
+            <column name="session_id" type="integer">
+                <constraints foreignKeyName="session_fk" referencedTableName="sessions" referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
