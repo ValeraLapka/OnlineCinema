@@ -2,6 +2,8 @@ package ru.edu.bsu.onlinecinema.persistance.dto;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 
 @Data
 public class SessionDto {

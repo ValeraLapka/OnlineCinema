@@ -48,4 +48,14 @@ public class Controller {
         return "index";
     }
 
+    @PostMapping("/add-reservation")
+    public String addReservation(Model model,@ModelAttribute("reservation") SessionDto sessionDto){
+        var userNameByAuthContext = userService.getUserByAuthContext().getUsername();
+        orderService.addOrderToUser(sessionDto.getFilmName(),sessionDto.getTime());
+        model.addAttribute("filter",new FilterDto());
+        model.addAttribute("sessions",sessionService.getAllSession());
+        model.addAttribute("user",userNameByAuthContext);
+        model.addAttribute("orders",orderService.getAllOrdersByUserName(userNameByAuthContext));
+        return "index";
+    }
 }

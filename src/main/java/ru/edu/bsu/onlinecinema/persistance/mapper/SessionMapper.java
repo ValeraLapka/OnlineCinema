@@ -14,7 +14,7 @@ public class SessionMapper {
     public SessionDto toSessionDto(Session session){
         SessionDto sessionDto = new SessionDto();
         sessionDto.setFilmName(session.getFilm().getName());
-        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+        DateTimeFormatter formatter =DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         sessionDto.setTime(session.getTime().format(formatter));
         sessionDto.setPlaceCount(session.getPlaceCount());
         return sessionDto;

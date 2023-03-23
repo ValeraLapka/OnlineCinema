@@ -1,6 +1,7 @@
 package ru.edu.bsu.onlinecinema.service.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -32,5 +33,17 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         user.setUsername(userDto.getUsername());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepository.save(user);
+    }
+
+    @Override
+    public User getUserByAuthContext() {
+        return userRepository.findFirstByUsername(getCurrentUsername())
+                .orElseThrow(()->new RuntimeException("user not found"));
+    }
+
+
+    private String getCurrentUsername() {
+        var auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth.getName();
     }
 }
