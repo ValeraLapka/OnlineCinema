@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>Расписание</h1>
+    <form:form method="POST" action="/filter-film" modelAttribute="filter">
+        <form:input path="filmName"/>
+        <input type="submit" value="Поиск"><br/>
+    </form:form>
     <table border="1">
         <caption>Доступные сеансы</caption>
         <tr>
