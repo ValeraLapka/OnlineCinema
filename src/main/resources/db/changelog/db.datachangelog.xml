@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="Valeria" id="24.03.2023">
+        <insert tableName="film">
+            <column name="name" value="Титаник"/>
+        </insert>
+        <insert tableName="film">
+            <column name="name" value="Мстители"/>
+        </insert>
+        <insert tableName="film">
+            <column name="name" value="Дневник памяти"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="username" value="user"/>
+            <column name="password" value="$2a$10$M8KhYYm8E6Ip4rqOBUoiE.WxqObRmb.iI2HHGkOgx8m/mlwusEbOa"/>
+        </insert>
+
+        <insert tableName="sessions">
+            <column name="film_id" value="1"/>
+            <column name="time" value="2023-03-20 09:38:27.000000"/>
+            <column name="place_count" value="20"/>
+        </insert>
+        <insert tableName="sessions">
+            <column name="film_id" value="2"/>
+            <column name="time" value="2023-03-21 09:38:27.000000"/>
+            <column name="place_count" value="15"/>
+        </insert>
+        <insert tableName="sessions">
+            <column name="film_id" value="3"/>
+            <column name="time" value="2023-03-22 09:38:27.000000"/>
+            <column name="place_count" value="10"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
